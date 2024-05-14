@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  publication_db:
+    image: postgres:15
+    container_name: publication_db
+    volumes:
+      - publication_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=publication_db
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=test
+
+  subscription_db:
+    image: postgres:15
+    container_name: subscription_db
+    volumes:
+      - subscription_data:/var/lib/postgresql/data/
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_DB=subscription_db
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=test
+
+volumes:
+  publication_data:
+  subscription_data:
