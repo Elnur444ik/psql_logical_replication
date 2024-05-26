@@ -2,10 +2,10 @@ version: '3'
 
 services:
   publication_db:
-    image: postgres:15
+    image: postgres:16
     container_name: publication_db
     volumes:
-      - publication_data:/var/lib/postgresql/data/
+      - publication_data_16:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     environment:
@@ -14,10 +14,10 @@ services:
       - POSTGRES_USER=test
 
   subscription_db:
-    image: postgres:15
+    image: postgres:16
     container_name: subscription_db
     volumes:
-      - subscription_data:/var/lib/postgresql/data/
+      - subscription_data_16:/var/lib/postgresql/data/
     ports:
       - "5435:5432"
     environment:
@@ -26,5 +26,5 @@ services:
       - POSTGRES_USER=test
 
 volumes:
-  publication_data:
-  subscription_data:
+  publication_data_16:
+  subscription_data_16:
